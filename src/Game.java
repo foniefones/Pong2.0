@@ -9,11 +9,17 @@ import java.awt.image.BufferedImage;
 public class Game extends Canvas implements Runnable {
     private static final long serialVersionUID = 1L;
 
+    public static PlayerPaddle player;
+    InputHandler ih;
+
     JFrame frame;
     public final int WIDTH = 400;
     public final int HEIGHT = 250;
     public final Dimension gameSize = new Dimension(WIDTH, HEIGHT);
     public final String TITLE = "Pong InDev";
+
+    public int screenWidth = (int) getWidth();
+    public int screenHeight = (int) getHeight();
 
     BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
@@ -52,9 +58,17 @@ public class Game extends Canvas implements Runnable {
         frame.setTitle(TITLE);
         frame.setLocationRelativeTo(null);
 
-    }
-    public void tick(){
+        player = new PlayerPaddle(10, 60);
 
+//        screenWidth = getWidth();
+//        screenHeight =  getHeight();
+
+        ih = new InputHandler(this);
+        frame.addKeyListener(ih);
+
+    }
+    public void tick(){             //update method
+        player.tick(this);
     }
     public void render() {
         BufferStrategy bs = frame.getBufferStrategy();
@@ -66,6 +80,8 @@ public class Game extends Canvas implements Runnable {
 
         g.setColor(Color.BLACK);
         g.drawImage(image, 0, 0, 400, 250, null);
+
+        player.render(g);
 
         g.dispose();
         bs.show();
