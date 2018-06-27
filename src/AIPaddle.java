@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class PlayerPaddle {
+public class AIPaddle {
     int x;
     int y;
     int width = 15;
@@ -11,16 +11,16 @@ public class PlayerPaddle {
     boolean goingUp = false;
     boolean goingDown = false;
 
-    public PlayerPaddle(int x, int y) {
+    public AIPaddle(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
     public void tick (Game game) {      //update method
-        if (goingUp && y >= 42) {
+        if (game.player.y < y) {
             y-= speed;
         }
-        if (goingDown &&  y < game.HEIGHT - 53) {  //fix this!
+        if(game.player.y > y) {
             y+= speed;
         }
     }

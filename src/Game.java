@@ -10,6 +10,7 @@ public class Game extends Canvas implements Runnable {
     private static final long serialVersionUID = 1L;
 
     public static PlayerPaddle player;
+    public static AIPaddle ai;
     InputHandler ih;
 
     JFrame frame;
@@ -23,13 +24,17 @@ public class Game extends Canvas implements Runnable {
 
     static boolean gameRunning = false;
 
-
     public void run() {
 
         while (gameRunning) {
             tick();
             render();
 
+            try {
+                Thread.sleep(7);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
         }
     }
@@ -59,13 +64,15 @@ public class Game extends Canvas implements Runnable {
         frame.setLocationRelativeTo(null);
 
         player = new PlayerPaddle(10, 60);
-        
+        ai = new AIPaddle(WIDTH - 25, 60);
+
         ih = new InputHandler(this);
         frame.addKeyListener(ih);
 
     }
     public void tick(){             //update method
         player.tick(this);
+        ai.tick(this);
     }
     public void render() {
         BufferStrategy bs = frame.getBufferStrategy();
@@ -79,6 +86,7 @@ public class Game extends Canvas implements Runnable {
         g.drawImage(image, 0, 0, 400, 250, null);
 
         player.render(g);
+        ai.render(g);
 
         g.dispose();
         bs.show();
