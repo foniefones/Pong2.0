@@ -5,7 +5,7 @@ public class AIPaddle {
     int y;
     int width = 15;
     int height = 40;
-    int speed = 3;
+    int speed = 1;
 
     Rectangle boundingBox;
 
@@ -20,13 +20,13 @@ public class AIPaddle {
         boundingBox.setBounds(x,y,width,height);
     }
 
-    public void tick (Game game) {      //update method
+    public void tick (Game game) {      //update method with bounds to keep paddle inside game walls
         boundingBox.setBounds(x,y,width,height);
-
-        if (game.player.y < y) {
+// Ai paddle adapts to ball movement
+        if (game.ball.y < y) {        // && y >= 0)
             y-= speed;
         }
-        if(game.player.y > y) {
+        if(game.ball.y > y) {       // && y + game.HEIGHT <= game.HEIGHT)
             y+= speed;
         }
     }

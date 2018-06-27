@@ -24,6 +24,7 @@ public class Game extends Canvas implements Runnable {
     BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
     static boolean gameRunning = false;
+    int p1score, p2score;
 
     public void run() {
 
@@ -86,6 +87,10 @@ public class Game extends Canvas implements Runnable {
 
         g.setColor(Color.BLACK);
         g.drawImage(image, 0, 0, 400, 250, null);
+
+        g.setColor(Color.WHITE);
+        g.drawString("Player 1: " + p1score,75,52);
+        g.drawString("Player 2: " + p2score,WIDTH -140,52);
 
         player.render(g);
         ai.render(g);

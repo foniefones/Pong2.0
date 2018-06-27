@@ -27,8 +27,10 @@ public class Ball {
         boundingBox.setBounds(x,y,size,size);
 
         if( x <= 0 ){
+            game.p2score++;
             velocityX=speed;
         }else if(x + size >= game.WIDTH){
+            game.p1score++;
             velocityX =-speed;
         }
         if(y < 32){
