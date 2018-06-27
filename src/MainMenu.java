@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 public class MainMenu extends JFrame {
 
 
-    int screenWidth = 275;
-    int screenHeight = 200;
+    int screenWidth = 283;
+    int screenHeight = 250;
 
     int buttonWidth = 100;
     int buttonHeight = 40;
@@ -26,7 +26,7 @@ public class MainMenu extends JFrame {
         twoPlayers.setBounds(0, 95, buttonWidth * 3, buttonHeight);
         limitFramerate.setBounds(0, 140, buttonWidth * 3, buttonHeight);
 
-        //placing buttons
+        //Adding buttons
         getContentPane().add(Play);
         getContentPane().add(Quit);
         getContentPane().add(twoPlayers);
@@ -37,7 +37,7 @@ public class MainMenu extends JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         setSize(screenWidth, screenHeight);
-        setTitle("Pong");
+        setTitle("Pong Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
@@ -50,20 +50,18 @@ public class MainMenu extends JFrame {
 
     }
     private void addActions() {
-        Play.addActionListener(new ActionListener() {
+        Play.addActionListener(new ActionListener() { //Take Play button, add new ActionListener
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) { // Turn the action performed into a variable for usage
                 dispose();
-                Game game = new Game();
-
-                game.start();
+                new Game().start();
             }
         });//Play button
 
-        Quit.addActionListener(new ActionListener() {
+        Quit.addActionListener(new ActionListener() { //Take Quit button, add new ActionListener
             @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+            public void actionPerformed(ActionEvent e) { // Turn the action performed into a variable for usage
+                System.exit(0); // Shutdown the porogram
             }
         });//Quit button
     }
