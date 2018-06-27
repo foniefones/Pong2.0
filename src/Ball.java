@@ -10,6 +10,8 @@ public class Ball {
     int velocityX;
     int velocityY;
 
+    Rectangle boundingBox;
+
 
     public Ball(int x, int y){
         this.x=x;
@@ -17,8 +19,12 @@ public class Ball {
 
         velocityX=speed;
         velocityY=speed;
+
+        boundingBox = new Rectangle(x,y, size, size);
+        boundingBox.setBounds(this.x,this.y,this.size,this.size);
     }
     public void tick(Game game) {
+        boundingBox.setBounds(x,y,size,size);
 
         if( x <= 0 ){
             velocityX=speed;
@@ -33,7 +39,17 @@ public class Ball {
 
         x += velocityX;
         y += velocityY;
+
+        paddleCollide(game);
     }
+
+        private void paddleCollide(Game game) {
+        if(boundingBox.intersects(game.player.boundingBox)){
+            velocityX=speed;
+        }else if(boundingBox.intersects(game.ai.boundingBox)){
+            velocityX=-speed;
+            }
+        }
 
     public void render(Graphics g){
         g.setColor(Color.RED);
