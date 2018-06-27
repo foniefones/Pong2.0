@@ -18,7 +18,7 @@ public class PlayerPaddle {
         if (goingUp && y >= 0) {
             y--;
         }
-        if (goingDown &&  y + height <= game.screenHeight) {
+        if (goingDown &&  y <= game.HEIGHT - height) {  //fix this!
             y++;
         }
     }

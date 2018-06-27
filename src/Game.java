@@ -18,8 +18,6 @@ public class Game extends Canvas implements Runnable {
     public final Dimension gameSize = new Dimension(WIDTH, HEIGHT);
     public final String TITLE = "Pong InDev";
 
-    public int screenWidth = (int) getWidth();
-    public int screenHeight = (int) getHeight();
 
     BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
@@ -31,6 +29,8 @@ public class Game extends Canvas implements Runnable {
         while (gameRunning) {
             tick();
             render();
+
+
         }
     }
 
@@ -59,10 +59,7 @@ public class Game extends Canvas implements Runnable {
         frame.setLocationRelativeTo(null);
 
         player = new PlayerPaddle(10, 60);
-
-//        screenWidth = getWidth();
-//        screenHeight =  getHeight();
-
+        
         ih = new InputHandler(this);
         frame.addKeyListener(ih);
 
