@@ -11,6 +11,7 @@ public class Game extends Canvas implements Runnable {
 
     public static PlayerPaddle player;
     public static AIPaddle ai;
+    public static Ball ball;
     InputHandler ih;
 
     JFrame frame;
@@ -65,7 +66,7 @@ public class Game extends Canvas implements Runnable {
 
         player = new PlayerPaddle(10, 60);
         ai = new AIPaddle(WIDTH - 25, 60);
-
+        ball = new Ball(WIDTH/2, HEIGHT/2);
         ih = new InputHandler(this);
         frame.addKeyListener(ih);
 
@@ -73,6 +74,7 @@ public class Game extends Canvas implements Runnable {
     public void tick(){             //update method
         player.tick(this);
         ai.tick(this);
+        ball.tick(this);
     }
     public void render() {
         BufferStrategy bs = frame.getBufferStrategy();
@@ -87,6 +89,7 @@ public class Game extends Canvas implements Runnable {
 
         player.render(g);
         ai.render(g);
+        ball.render(g);
 
         g.dispose();
         bs.show();
