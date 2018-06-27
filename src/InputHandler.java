@@ -11,6 +11,7 @@ public class InputHandler implements KeyListener {
         System.out.println("press");
         int keyCode = e.getKeyCode();
 
+        //Player 1 controls
         if (keyCode == KeyEvent.VK_W) {
             Game.player.goingUp = true;
             Game.player.goingDown = false;
@@ -19,12 +20,23 @@ public class InputHandler implements KeyListener {
             Game.player.goingUp = false;
             Game.player.goingDown = true;
         }
+
+        //Player 2 controls
+        if (keyCode == KeyEvent.VK_UP) {
+            Game.ai.goingUp = true;
+            Game.ai.goingDown = false;
+        }
+        if (keyCode == KeyEvent.VK_DOWN) {
+            Game.ai.goingUp = false;
+            Game.ai.goingDown = true;
+        }
     }
 
     public void keyReleased(KeyEvent e) {
         System.out.println("release");
         int keyCode = e.getKeyCode();
 
+        //Player 1 controls
         if (keyCode == KeyEvent.VK_W) {
             Game.player.goingUp = false;
             Game.player.goingDown = false;
@@ -32,6 +44,16 @@ public class InputHandler implements KeyListener {
         if (keyCode == KeyEvent.VK_S) {
             Game.player.goingUp = false;
             Game.player.goingDown = false;
+        }
+
+        //Player 2 controls
+        if (keyCode == KeyEvent.VK_UP) {
+            Game.ai.goingUp = false;
+            Game.ai.goingDown = false;
+        }
+        if (keyCode == KeyEvent.VK_DOWN) {
+            Game.ai.goingUp = false;
+            Game.ai.goingDown = false;
         }
     }
 

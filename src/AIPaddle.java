@@ -7,6 +7,8 @@ public class AIPaddle {
     int height = 40;
     int speed = 1;
 
+    boolean isTwoPlayers = false;
+
     Rectangle boundingBox;
 
     boolean goingUp = false;
@@ -16,23 +18,32 @@ public class AIPaddle {
         this.x = x;
         this.y = y;
 
-        boundingBox = new Rectangle(x,y, width, height);
-        boundingBox.setBounds(x,y,width,height);
+        boundingBox = new Rectangle(x, y, width, height);
+        boundingBox.setBounds(x, y, width, height);
     }
 
-    public void tick (Game game) {      //update method with bounds to keep paddle inside game walls
-        boundingBox.setBounds(x,y,width,height);
+    public void tick(Game game) {      //update method with bounds to keep paddle inside game walls
+        boundingBox.setBounds(x, y, width, height);
 // Ai paddle adapts to ball movement
-        if (game.ball.y < y) {        // && y >= 0)
-            y-= speed;
-        }
-        if(game.ball.y > y) {       // && y + game.HEIGHT <= game.HEIGHT)
-            y+= speed;
+        if (!isTwoPlayers) {
+
+            if (game.ball.y < y) {        // && y >= 0)
+                y -= speed;
+            }
+            if (game.ball.y > y) {       // && y + game.HEIGHT <= game.HEIGHT)
+                y += speed;
+            }
+        } else  {
+            if(goingUp) {
+                y -= speed;
+            } else if(goingDown) {
+                y += speed;
+            }
         }
     }
 
-    public void render (Graphics g) {
+    public void render(Graphics g) {
         g.setColor(Color.WHITE);
-        g.fillRect(x, y, width , height);
+        g.fillRect(x, y, width, height);
     }
 }

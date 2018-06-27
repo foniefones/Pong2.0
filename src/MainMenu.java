@@ -6,7 +6,7 @@ public class MainMenu extends JFrame {
 
 
     int screenWidth = 283;
-    int screenHeight = 250;
+    int screenHeight = 200;
 
     int buttonWidth = 100;
     int buttonHeight = 40;
@@ -21,16 +21,14 @@ public class MainMenu extends JFrame {
         addButtons();
         addActions();
 
-        Play.setBounds((screenWidth - buttonWidth) / 2, 5, buttonWidth, buttonHeight);
-        Quit.setBounds((screenWidth - buttonWidth) / 2, 50, buttonWidth, buttonHeight);
-        twoPlayers.setBounds(0, 95, buttonWidth * 3, buttonHeight);
-        limitFramerate.setBounds(0, 140, buttonWidth * 3, buttonHeight);
+        Play.setBounds((screenWidth - buttonWidth) / 2, 5, buttonWidth, buttonHeight); //Position Play button
+        Quit.setBounds((screenWidth - buttonWidth) / 2, 50, buttonWidth, buttonHeight); // Position Quit button
+        twoPlayers.setBounds((screenWidth - buttonWidth) / 2, 95, buttonWidth * 3, buttonHeight); //Position the twPlayers checkbox
 
         //Adding buttons
         getContentPane().add(Play);
         getContentPane().add(Quit);
         getContentPane().add(twoPlayers);
-        getContentPane().add(limitFramerate);
 
         //JFrame stuff
         pack();
@@ -46,7 +44,6 @@ public class MainMenu extends JFrame {
         Play = new JButton("Play");
         Quit = new JButton("Quit");
         twoPlayers = new JCheckBox("2 Players");
-        limitFramerate = new JCheckBox("Limit Frames/Second to Updates/Second?");
 
     }
     private void addActions() {
@@ -54,7 +51,15 @@ public class MainMenu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) { // Turn the action performed into a variable for usage
                 dispose();
-                new Game().start();
+
+                Game game = new Game();
+
+                if(twoPlayers.isSelected()) {
+                    game.ai.isTwoPlayers = true;
+                } else{
+                    game.ai.isTwoPlayers = false;
+                }
+                game.start();
             }
         });//Play button
 
