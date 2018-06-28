@@ -26,7 +26,7 @@ public class Ball {
     public void tick(Game game) {               //win condition and add player scores
         boundingBox.setBounds(x,y,size,size);
 
-        if(game.p1score == 10 || game.p2score ==10)
+        if(game.p1score == 5 || game.p2score == 5)
             Game.stop();
         if( x <= 0 ){
             game.p2score++;
