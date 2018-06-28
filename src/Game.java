@@ -30,13 +30,6 @@ public class Game extends Canvas implements Runnable {
         while (gameRunning) {
             tick();
             render();
-
-            try {
-                Thread.sleep(7);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
         }
 
         if(p1score==10){        //win condition player1

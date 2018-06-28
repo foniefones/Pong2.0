@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public class Ball {
     private int x;
-    private int y;
+    int y;
     private int size=16;
     private int speed = 3;
     private int velocityX;
