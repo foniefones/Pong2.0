@@ -34,9 +34,10 @@ public class AIPaddle {
                 y += speed;
             }
         } else  {
-            if(goingUp) {
+            speed = 2;
+            if(goingUp && y >= 40) {
                 y -= speed;
-            } else if(goingDown) {
+            } else if(goingDown &&  y < game.HEIGHT - 83) {
                 y += speed;
             }
         }

@@ -31,9 +31,11 @@ public class Ball {
         if( x <= 0 ){
             game.p2score++;
             velocityX=speed;
+            Game.musicplayer.playFX("audio/scoresound.wav");
         }else if(x + size >= game.WIDTH){
             game.p1score++;
             velocityX =-speed;
+            Game.musicplayer.playFX("audio/scoresound.wav");
         }
         if(y < 32){
             velocityY = speed;

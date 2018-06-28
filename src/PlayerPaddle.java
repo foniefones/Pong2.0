@@ -25,7 +25,7 @@ public class PlayerPaddle {
         if (goingUp && y >= 40) {
             y-= speed;
         }
-        if (goingDown &&  y < game.HEIGHT - 83) {  //fix this!
+        if (goingDown &&  y < game.HEIGHT - 83) {
             y+= speed;
         }
     }
