@@ -52,10 +52,10 @@ public class Ball {
         private void paddleCollide(Game game) {
         if(boundingBox.intersects(game.player.boundingBox)){
             velocityX=speed;
-            Game.musicplayer.playFX("audio/pongblip.wav");
+            Game.musicplayer.playFX("audio/pongpaddle.wav");
         }else if(boundingBox.intersects(game.ai.boundingBox)){
             velocityX=-speed;
-            Game.musicplayer.playFX("audio/pongblip.wav");
+            Game.musicplayer.playFX("audio/pongpaddle.wav");
             }
         }
 
