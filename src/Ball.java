@@ -37,8 +37,10 @@ public class Ball {
         }
         if(y < 32){
             velocityY = speed;
+            Game.musicplayer.playFX("audio/pongblip.wav");
         }else if ( y  >= game.HEIGHT-size){
             velocityY=-speed;
+            Game.musicplayer.playFX("audio/pongblip.wav");
         }
 
         x += velocityX;
@@ -50,8 +52,10 @@ public class Ball {
         private void paddleCollide(Game game) {
         if(boundingBox.intersects(game.player.boundingBox)){
             velocityX=speed;
+            Game.musicplayer.playFX("audio/pongblip.wav");
         }else if(boundingBox.intersects(game.ai.boundingBox)){
             velocityX=-speed;
+            Game.musicplayer.playFX("audio/pongblip.wav");
             }
         }
 
