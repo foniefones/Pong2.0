@@ -26,6 +26,8 @@ public class Ball {
     public void tick(Game game) {
         boundingBox.setBounds(x,y,size,size);
 
+        if(game.p1score == 3 || game.p2score ==3)
+            Game.stop();
         if( x <= 0 ){
             game.p2score++;
             velocityX=speed;

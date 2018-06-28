@@ -22,10 +22,10 @@ public class PlayerPaddle {
 
     public void tick (Game game) {      //update method
         boundingBox.setBounds(x,y,width,height);
-        if (goingUp && y >= 42) {
+        if (goingUp && y >= 40) {
             y-= speed;
         }
-        if (goingDown &&  y < game.HEIGHT - 53) {  //fix this!
+        if (goingDown &&  y < game.HEIGHT - 83) {  //fix this!
             y+= speed;
         }
     }
