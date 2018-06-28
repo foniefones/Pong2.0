@@ -35,7 +35,7 @@ public class MainMenu extends JFrame {
         pack();
         setVisible(true);
         setSize(screenWidth, screenHeight);
-        setTitle("ACADEMY PONG CHAMP DELUXE");
+        setTitle("ACADEMY PO(N)GCHAMP DELUXE");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
