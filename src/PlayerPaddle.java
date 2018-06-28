@@ -16,7 +16,7 @@ public class PlayerPaddle {
         this.x = x;
         this.y = y;
 
-        boundingBox = new Rectangle(x,y, width, height);
+        boundingBox = new Rectangle(x,y, width, height);        //invisible rect for paddle to check collision with ball
         boundingBox.setBounds(x,y,width,height);
     }
 

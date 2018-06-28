@@ -20,10 +20,10 @@ public class Ball {
         velocityX=speed;
         velocityY=speed;
 
-        boundingBox = new Rectangle(x,y, size, size);
+        boundingBox = new Rectangle(x,y, size, size);               //invisible rect for ball to check collision with paddles
         boundingBox.setBounds(this.x,this.y,this.size,this.size);
     }
-    public void tick(Game game) {
+    public void tick(Game game) {               //win condition and add player scores
         boundingBox.setBounds(x,y,size,size);
 
         if(game.p1score == 10 || game.p2score ==10)

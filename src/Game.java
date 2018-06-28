@@ -18,7 +18,7 @@ public class Game extends Canvas implements Runnable {
     public final int WIDTH = 800;
     public final int HEIGHT = 500;
     public final Dimension gameSize = new Dimension(WIDTH, HEIGHT);
-    public final String TITLE = "Pong InDev";
+    public final String TITLE = "ACADEMY PONG CHAMP DELUXE";
 
 
     BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
@@ -40,7 +40,7 @@ public class Game extends Canvas implements Runnable {
 
         }
 
-        if(p1score==10){
+        if(p1score==10){        //win condition player1
           int playagain =  JOptionPane.showConfirmDialog(null, "Player 1 is the winner! \nPlay again?","GAME OVER", JOptionPane.YES_NO_OPTION);
             if(playagain==0){
                 Game game = new Game();
@@ -50,7 +50,7 @@ public class Game extends Canvas implements Runnable {
                 System.exit(0);
             }
         }
-        else if (p2score==10){
+        else if (p2score==10){      //win condition player2
          int playagain =  JOptionPane.showConfirmDialog(null, "Player 2 is the winner! \nPlay again?","GAME OVER", JOptionPane.YES_NO_OPTION);
          if(playagain==0){
              Game game = new Game();
@@ -100,7 +100,7 @@ public class Game extends Canvas implements Runnable {
         ai.tick(this);
         ball.tick(this);
     }
-    public void render() {
+    public void render() {                                  //draw background, paddles and ball in canvas window
         BufferStrategy bs = frame.getBufferStrategy();
         if (bs == null) {
             frame.createBufferStrategy(3);

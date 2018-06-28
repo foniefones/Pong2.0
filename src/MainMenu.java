@@ -12,7 +12,7 @@ public class MainMenu extends JFrame {
     int buttonHeight = 40;
 
     JButton Play, Quit;
-    JCheckBox twoPlayers, limitFramerate;
+    JCheckBox twoPlayers;
 
     public MainMenu() {
         getContentPane().setLayout(null);
@@ -21,9 +21,9 @@ public class MainMenu extends JFrame {
         addButtons();
         addActions();
 
-        Play.setBounds((screenWidth - buttonWidth) / 2, 5, buttonWidth, buttonHeight); //Position Play button
-        Quit.setBounds((screenWidth - buttonWidth) / 2, 50, buttonWidth, buttonHeight); // Position Quit button
-        twoPlayers.setBounds((screenWidth - buttonWidth) / 2, 95, buttonWidth * 3, buttonHeight); //Position the twPlayers checkbox
+        Play.setBounds((screenWidth - buttonWidth) / 2, 150,buttonWidth, buttonHeight); //Position Play button
+        Quit.setBounds((screenWidth - buttonWidth) / 2, 200, buttonWidth, buttonHeight); // Position Quit button
+        twoPlayers.setBounds((screenWidth - buttonWidth) / 2, 255, buttonWidth * 3, buttonHeight); //Position the twPlayers checkbox
 
         //Adding buttons
         getContentPane().add(Play);
@@ -35,7 +35,7 @@ public class MainMenu extends JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         setSize(screenWidth, screenHeight);
-        setTitle("Pong Menu");
+        setTitle("ACADEMY PONG CHAMP DELUXE");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
