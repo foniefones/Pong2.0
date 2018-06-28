@@ -3,12 +3,12 @@ import java.awt.Graphics;
 import java.awt.Color;
 
 public class Ball {
-    int x;
-    int y;
-    int size=16;
-    int speed = 3;
-    int velocityX;
-    int velocityY;
+    private int x;
+    private int y;
+    private int size=16;
+    private int speed = 3;
+    private int velocityX;
+    private int velocityY;
 
     Rectangle boundingBox;
 
