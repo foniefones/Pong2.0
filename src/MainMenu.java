@@ -16,6 +16,7 @@ public class MainMenu extends JFrame {
 
     public MainMenu() {
         getContentPane().setLayout(null);
+        Game.musicplayer.play("audio/menumelody.wav");
 
         //calling methods
         addButtons();
@@ -60,6 +61,7 @@ public class MainMenu extends JFrame {
                     game.ai.isTwoPlayers = false;
                 }
                 game.start();
+                Game.musicplayer.stop("audio/menumelody.wav");
             }
         });//Play button
 

@@ -24,6 +24,7 @@ public class Game extends Canvas implements Runnable {
 
     static boolean gameRunning = false;
     int p1score, p2score;
+    static MP3Player musicplayer = new MP3Player();
 
     public void run() {
 
