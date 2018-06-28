@@ -30,27 +30,29 @@ public class Game extends Canvas implements Runnable {
         while (gameRunning) {
             tick();
             render();
+            try {
+                Thread.sleep(7);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
-        if(p1score==10){        //win condition player1
-          int playagain =  JOptionPane.showConfirmDialog(null, "Player 1 is the winner! \nPlay again?","GAME OVER", JOptionPane.YES_NO_OPTION);
-            if(playagain==0){
+        if (p1score == 10) {        //win condition player1
+            int playagain = JOptionPane.showConfirmDialog(null, "Player 1 is the winner! \nPlay again?", "GAME OVER", JOptionPane.YES_NO_OPTION);
+            if (playagain == 0) {
                 Game game = new Game();
                 game.start();
-            }
-            else if(playagain==1){
+            } else if (playagain == 1) {
                 System.exit(0);
             }
-        }
-        else if (p2score==10){      //win condition player2
-         int playagain =  JOptionPane.showConfirmDialog(null, "Player 2 is the winner! \nPlay again?","GAME OVER", JOptionPane.YES_NO_OPTION);
-         if(playagain==0){
-             Game game = new Game();
-             game.start();
-         }
-         else if(playagain==1){
-             System.exit(0);
-         }
+        } else if (p2score == 10) {      //win condition player2
+            int playagain = JOptionPane.showConfirmDialog(null, "Player 2 is the winner! \nPlay again?", "GAME OVER", JOptionPane.YES_NO_OPTION);
+            if (playagain == 0) {
+                Game game = new Game();
+                game.start();
+            } else if (playagain == 1) {
+                System.exit(0);
+            }
         }
     }
 
@@ -58,6 +60,7 @@ public class Game extends Canvas implements Runnable {
         gameRunning = true;
         new Thread(this).start();
     }
+
     public static synchronized void stop() {
         gameRunning = false;
 
@@ -82,16 +85,18 @@ public class Game extends Canvas implements Runnable {
 
         player = new PlayerPaddle(10, 60);
         ai = new AIPaddle(WIDTH - 25, 60);
-        ball = new Ball(WIDTH/2, HEIGHT/2);
+        ball = new Ball(WIDTH / 2, HEIGHT / 2);
         ih = new InputHandler(this);
         frame.addKeyListener(ih);
 
     }
-    public void tick(){             //update method
+
+    public void tick() {             //update method
         player.tick(this);
         ai.tick(this);
         ball.tick(this);
     }
+
     public void render() {                                  //draw background, paddles and ball in canvas window
         BufferStrategy bs = frame.getBufferStrategy();
         if (bs == null) {
@@ -104,8 +109,8 @@ public class Game extends Canvas implements Runnable {
         g.drawImage(image, 0, 0, 800, 500, null);
 
         g.setColor(Color.WHITE);
-        g.drawString("Player 1: " + p1score,75,52);
-        g.drawString("Player 2: " + p2score,WIDTH -140,52);
+        g.drawString("Player 1: " + p1score, 75, 52);
+        g.drawString("Player 2: " + p2score, WIDTH - 140, 52);
 
         player.render(g);
         ai.render(g);
