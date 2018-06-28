@@ -39,7 +39,8 @@ public class Game extends Canvas implements Runnable {
         }
 
         if (p1score == 5) {        //win condition player1
-            int playagain = JOptionPane.showConfirmDialog(null, "Player 1 is the winner! \nPlay again?", "GAME OVER", JOptionPane.YES_NO_OPTION);
+            int playagain = JOptionPane.showConfirmDialog(null, "Player 1 is the winner! " +
+                    "\nPlay again?", "GAME OVER", JOptionPane.YES_NO_OPTION);
             if (playagain == 0) {
                 Game game = new Game();
                 game.start();
@@ -47,7 +48,8 @@ public class Game extends Canvas implements Runnable {
                 System.exit(0);
             }
         } else if (p2score == 5) {      //win condition player2
-            int playagain = JOptionPane.showConfirmDialog(null, "Player 2 is the winner! \nPlay again?", "GAME OVER", JOptionPane.YES_NO_OPTION);
+            int playagain = JOptionPane.showConfirmDialog(null, "Player 2 is the winner! " +
+                    "\nPlay again?", "GAME OVER", JOptionPane.YES_NO_OPTION);
             if (playagain == 0) {
                 Game game = new Game();
                 game.start();
