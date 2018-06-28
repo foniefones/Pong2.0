@@ -8,7 +8,6 @@ public class InputHandler implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
-        System.out.println("press");
         int keyCode = e.getKeyCode();
 
         //Player 1 controls
@@ -33,7 +32,6 @@ public class InputHandler implements KeyListener {
     }
 
     public void keyReleased(KeyEvent e) {
-        System.out.println("release");
         int keyCode = e.getKeyCode();
 
         //Player 1 controls

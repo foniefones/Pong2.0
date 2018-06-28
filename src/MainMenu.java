@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 public class MainMenu extends JFrame {
 
 
-    int screenWidth = 283;
-    int screenHeight = 200;
+    int screenWidth =800;
+    int screenHeight = 500;
 
     int buttonWidth = 100;
     int buttonHeight = 40;
