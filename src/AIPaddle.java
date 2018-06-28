@@ -4,8 +4,8 @@ public class AIPaddle {
     int x;
     int y;
     int width = 15;
-    int height = 40;
-    int speed = 1;
+    int height = 70;
+    int speed = 2;
 
     boolean isTwoPlayers = false;
 

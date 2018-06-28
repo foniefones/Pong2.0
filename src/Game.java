@@ -15,8 +15,8 @@ public class Game extends Canvas implements Runnable {
     InputHandler ih;
 
     JFrame frame;
-    public final int WIDTH = 400;
-    public final int HEIGHT = 250;
+    public final int WIDTH = 800;
+    public final int HEIGHT = 500;
     public final Dimension gameSize = new Dimension(WIDTH, HEIGHT);
     public final String TITLE = "Pong InDev";
 
@@ -86,7 +86,7 @@ public class Game extends Canvas implements Runnable {
         Graphics g = bs.getDrawGraphics();
 
         g.setColor(Color.BLACK);
-        g.drawImage(image, 0, 0, 400, 250, null);
+        g.drawImage(image, 0, 0, 800, 500, null);
 
         g.setColor(Color.WHITE);
         g.drawString("Player 1: " + p1score,75,52);

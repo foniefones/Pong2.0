@@ -6,7 +6,7 @@ public class Ball {
     int x;
     int y;
     int size=16;
-    int speed = 2;
+    int speed = 3;
     int velocityX;
     int velocityY;
 
