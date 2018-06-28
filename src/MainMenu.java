@@ -33,10 +33,10 @@ public class MainMenu extends JFrame {
         //JFrame stuff
         pack();
         setVisible(true);
-        setLocationRelativeTo(null);
         setSize(screenWidth, screenHeight);
         setTitle("ACADEMY PONG CHAMP DELUXE");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setResizable(false);
 
     }
