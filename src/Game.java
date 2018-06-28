@@ -17,7 +17,7 @@ public class Game extends Canvas implements Runnable {
     public final int WIDTH = 800;
     public final int HEIGHT = 500;
     public final Dimension gameSize = new Dimension(WIDTH, HEIGHT);
-    public final String TITLE = "ACADEMY PONG CHAMP DELUXE";
+    public final String TITLE = "ACADEMY PO(N)GCHAMP DELUXE";
 
 
     BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
